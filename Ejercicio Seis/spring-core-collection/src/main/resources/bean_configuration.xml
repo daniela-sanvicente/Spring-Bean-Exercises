@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- bean definitions here -->
+    <bean id="persona" class="dgtic.core.modelo.Persona">
+        <property name="nombre" value="Mario"/>
+        <property name="edad" value="23"/>
+        <property name="actividades">
+            <list>
+                <ref bean="gestionProyectos"/>
+                <ref bean="planificacionProyectos"/>
+                <ref bean="intercambioConocimientos"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="personaDos" class="dgtic.core.modelo.Persona">
+        <property name="nombre" value="Mario"/>
+        <property name="edad" value="23"/>
+        <property name="actividades">
+            <set>
+                <ref bean="gestionProyectos"/>
+                <ref bean="planificacionProyectos"/>
+                <ref bean="intercambioConocimientos"/>
+                <ref bean="gestionProyectos"/>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="personaTres" class="dgtic.core.modelo.PersonaM">
+        <property name="nombre" value="Tomas"/>
+        <property name="edad" value="37"/>
+        <property name="actividades">
+            <map>
+                <entry key="uno" value-ref="gestionProyectos"/>
+                <entry key="dos" value-ref="planificacionProyectos"/>
+                <entry key="tres" value-ref="intercambioConocimientos"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="personaCuatro" class="dgtic.core.modelo.PersonaP">
+        <property name="nombre" value="Daniel"/>
+        <property name="edad" value="30"/>
+        <property name="actividades">
+            <props>
+                <prop key="uno">"Gestion de Proyectos"</prop>
+                <prop key="dos">"Planificación de Proyectos"</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="gestionProyectos" class="dgtic.core.modelo.GestionProyectos"/>
+    <bean id="planificacionProyectos" class="dgtic.core.modelo.PlanificacionProyectos"/>
+    <bean id="intercambioConocimientos" class="dgtic.core.modelo.IntercambioConocimientos"/>
+</beans>

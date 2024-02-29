@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- bean definitions here -->
+
+    <bean id="Cliente" class="dgtic.core.modelo.Cliente"
+          scope="prototype">
+        <property name="id" value="1"/>
+        <property name="nombre" value="Petro"/>
+        <property name="apellido" value="Lionel"/>
+        <property name="correo" value="a.petrocleo.l@gmail.com"/>
+        <property name="telefonoCasa" value="5556911167"/>
+        <property name="whatsApp" value="5514204601"/>
+        <property name="direccion" value="Calle 20 de nov. Mz.47 Lt. 27"/>
+        <property name="tipo" value="revendedor"/>
+        <property name="contrasena" value="petrocleo2009"/>
+    </bean>
+
+    <bean id="dulces" class="dgtic.core.modelo.Dulces"
+          scope="prototype">
+        <property name="id" value="1"/>
+        <property name="nombreDulce" value="paleta cereal chocolate"/>
+        <property name="precio" value="15"/>
+        <property name="tema" value="dia del amor y la amistad"/>
+        <property name="tipo" value="chocolate"/>
+        <property name="stock" value="40"/>
+        <property name="imagen" value="https://dulces-caseros.com/paleta-cereal.png"/>
+        <property name="tiempoElaboracion" value="disponible"/>
+    </bean>
+
+    <bean id="pago" class="dgtic.core.modelo.Pago"
+          scope="prototype">
+        <property name="id" value="1"/>
+        <property name="Cliente" ref="Cliente"/>
+        <property name="MetodoPago" ref="MetodoPago"/>
+        <property name="emisor" value="Mastercard"/>
+        <property name="numeroCuenta" value="1456 9876 6087 9848"/>
+        <property name="fechaExpiracion" value="08/28"/>
+        <property name="cvv" value="145"/>
+    </bean>
+
+    <bean id="MetodoPago" class="dgtic.core.modelo.MetodoPago"
+          scope="prototype">
+        <property name="id" value="1"/>
+        <property name="metodo" value="TDC"/>
+    </bean>
+    
+    
+</beans>
